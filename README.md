@@ -13,7 +13,8 @@ This project aims to build an IoT system that monitors temperature and humidity 
 ---
 
 ## Project Architecture
-![IOT_Project drawio](https://github.com/user-attachments/assets/66391925-5f6c-457e-a1e6-7482b5599fbc)
+![image](https://github.com/user-attachments/assets/ceea7e7b-33c8-4000-a7a0-9620088e06ef)
+
 
 The architecture of this IoT project is as follows:
 
