@@ -33,11 +33,11 @@ app.post('/receive-data', (req, res) => {
         }
 
         // Zabbix sender command parameters
-        const zabbixServerIp = '192.168.1.21'; // Replace with your Zabbix server IP
-        const windowsHostname = 'DESKTOP-HMHEA9K'; // Replace with your Windows machine hostname
-        const tlsConnect = '--tls-connect=psk';
-        const tlsPskIdentity = '--tls-psk-identity=windows-agent';
-        const tlsPskFile = '--tls-psk-file="C:\\Program Files\\Zabbix Agent\\encryption.key"';
+        const zabbixServerIp = 'zabbixServerIp'; // Replace with your Zabbix server IP
+        const windowsHostname = 'windowsHostname'; // Replace with your Windows machine hostname
+        const tlsConnect = 'tlsConnect';
+        const tlsPskIdentity = 'tlsPskIdentity';
+        const tlsPskFile = 'tlsPskFile';
 
         // Send temperature data to Zabbix
         const tempCommand = `zabbix_sender -z ${zabbixServerIp} -s "${windowsHostname}" -k sensor.temperature -o ${temperature} ${tlsConnect} ${tlsPskIdentity} ${tlsPskFile}`;

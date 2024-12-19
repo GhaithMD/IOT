@@ -1,2 +1,0 @@
-temperature:19.7
-humidity:74

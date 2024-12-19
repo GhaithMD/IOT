@@ -4,9 +4,9 @@ const app = express();
 const port = 3001;
 
 // Zabbix API URL and credentials
-const ZABBIX_URL = 'http://192.168.1.21/zabbix/api_jsonrpc.php';
-const ZABBIX_USERNAME = 'Admin'; // Replace with your Zabbix username
-const ZABBIX_PASSWORD = 'zabbix'; // Replace with your Zabbix password
+const ZABBIX_URL = 'ZABBIX_URL';
+const ZABBIX_USERNAME = 'ZABBIX_USERNAME'; // Replace with your Zabbix username
+const ZABBIX_PASSWORD = 'ZABBIX_PASSWORD'; // Replace with your Zabbix password
 
 // Function to authenticate with Zabbix and get the authentication token
 async function authenticate() {

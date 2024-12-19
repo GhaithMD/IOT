@@ -28,7 +28,7 @@ const SensorScreen = () => {
   useEffect(() => {
     const fetchSensorData = async () => {
       try {
-        const response = await axios.get('http://192.168.1.20:3001/get-sensor-data');
+        const response = await axios.get('API-URL');
         const { temperature, humidity, alert } = response.data; // Get alert from backend
 
         setTemperature(temperature);
