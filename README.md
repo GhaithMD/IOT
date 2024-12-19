@@ -263,7 +263,7 @@ Firebase Authentication was configured to handle user sign-up and login, ensurin
   - Firebase handles user login and verifies credentials:
     - If authentication fails, the app displays an error.
 
-     ![image](https://github.com/user-attachments/assets/7334e7f4-7f54-4621-9aba-2aa54d1c4b8f)
+     ![image](https://github.com/user-attachments/assets/b64199ec-89b4-41a5-868f-1863cd8e817a)
 
     - If authentication is successful, the app displays:
 
