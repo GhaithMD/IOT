@@ -243,7 +243,7 @@ This division simplifies the practical implementation while highlighting the key
 1. Go to the Project Settings in your Firebase console.
 2. Register your application by adding it to the project. This process will generate the Firebase SDK, which will be used to establish a connection between your app and Firebase.
 
-![image](https://github.com/user-attachments/assets/846e3acf-df39-437f-a4a6-5f7457eef88c)
+![image](https://github.com/user-attachments/assets/c379410d-26e1-47aa-8c3e-b93a41a5b43b)
 
 **Setting Up Firebase Authentication:**
 Firebase Authentication was configured to handle user sign-up and login, ensuring secure access to the application.
