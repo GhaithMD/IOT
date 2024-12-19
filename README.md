@@ -40,8 +40,7 @@ This project aims to develop a secure IoT system for monitoring temperature and 
 - **Monitoring Platform**: Zabbix for storing and visualizing data.
 - **Development Environment**:  
   - Ubuntu (VM) for Zabbix Server.  
-  - Windows for Zabbix Agent.  
-  - Static file simulation for initial testing.
+  - Windows for Zabbix Agent. 
 
 ---
 
