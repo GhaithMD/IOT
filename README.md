@@ -263,7 +263,8 @@ Firebase Authentication was configured to handle user sign-up and login, ensurin
   - Firebase handles user login and verifies credentials:
     - If authentication fails, the app displays an error.
 
-     ![image](https://github.com/user-attachments/assets/b64199ec-89b4-41a5-868f-1863cd8e817a)
+      ![image](https://github.com/user-attachments/assets/871292e1-4f4a-4968-93d5-bb2343e3fae9)
+
 
     - If authentication is successful, the app displays:
 
@@ -316,7 +317,7 @@ Firebase Authentication was configured to handle user sign-up and login, ensurin
 **Test Objectives:**
 - Test the end-user application, if applicable, to confirm that sensor data is displayed accurately.
 
-![image](https://github.com/user-attachments/assets/453d38cb-6899-4db0-851e-2d7f38e712fa)
+![image](https://github.com/user-attachments/assets/dfa6f73d-17ad-4482-98f8-1ebe90f23a71)
 
 - Ensure that the app's security features, including Firebase integration and user authentication, are functioning correctly to safeguard user data and maintain secure access.
 
