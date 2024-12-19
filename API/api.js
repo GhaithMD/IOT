@@ -1,13 +1,21 @@
+const https = require('https');
 const express = require('express');
 const bodyParser = require('body-parser');
 const { exec } = require('child_process');
 const fs = require('fs');
+const path = require('path');
 
 const app = express();
-const port = 8080;
+const port = 8443; // Use 8443 for HTTPS
 
 // Middleware to parse JSON request bodies
 app.use(bodyParser.json());
+
+// Load SSL certificate and key
+const sslOptions = {
+    key: fs.readFileSync(path.join(__dirname, 'key')), // Replace with your key file
+    cert: fs.readFileSync(path.join(__dirname, 'certif.crt')), // Replace with your cert file
+};
 
 // Route to receive data from ESP32
 app.post('/receive-data', (req, res) => {
@@ -53,7 +61,7 @@ app.post('/receive-data', (req, res) => {
     });
 });
 
-// Start the server
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+// Start the HTTPS server
+https.createServer(sslOptions, app).listen(port, () => {
+    console.log(`Secure server is running on https://localhost:${port}`);
 });
