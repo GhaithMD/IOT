@@ -10,6 +10,10 @@ This project aims to develop a secure IoT system for monitoring temperature and 
 - **Enhanced Authentication**: Employs Firebase Authentication to manage user access securely.
 - **Robust Monitoring with Zabbix**: Uses Zabbix PSK for secure data submission and monitoring.
 - **Wi-Fi Connectivity**: Implements Wi-Fi security standards to ensure secure connectivity.
+- **Threat Modeling with Microsoft TMT**: Identifies potential security threats in the system architecture.
+- **Code Quality and Security with SonarQube**: Integrates SonarQube to perform static code analysis for identifying vulnerabilities, code smells, and bugs.
+
+
 
 ---
 
@@ -53,10 +57,47 @@ This project aims to develop a secure IoT system for monitoring temperature and 
 - **ESP32**: Captures temperature and humidity data.
 - **Wi-Fi Communication**: The ESP32 sends data wirelessly to the home router.
 - **Gateway**: Receives the data locally from the router and prepares it for secure transmission.
+-	**HTTPS**: Secures communication between devices and servers. 
+-	**Zabbix Monitor**: Stores and monitors the sensor data and generates alerts.
+-	**Firebase**: Manages user authentication for secure access. 
+-	**End-User Application**: Displays real-time data and alerts to users.
+-	**Microsoft Threat Modeling Tool (TMT)**: Identifies and mitigates potential security threats in the system architecture.
+-	**SonarQube**: Performs static code analysis to ensure secure, high-quality, and maintainable code.
 
 **Key Protocols:**
 - Wi-Fi
 - HTTPS
+
+## Threat Modeling :
+This diagram illustrates our architecture of an IoT-based data monitoring system with defined zones for security and functionality:
+
+![image](https://github.com/user-attachments/assets/2aa52528-e63e-4fd2-9de3-cf592131ef5b)
+
+**Key Security Measures**:
+-	HTTPS encryption ensures data integrity and confidentiality during transmission between all components.
+-	The architecture is segmented into distinct zones (IoT, Internet, Cloud, and User) to maintain security and scalability.
+
+Here are examples of how the report addressed potential threats and their mitigations:
+**1.	Spoofing of Destination Data Store (Zabbix):**
+
+![image](https://github.com/user-attachments/assets/4e2ff485-f90b-4b24-8911-2a4dc20653a6)
+
+- **Threat**: An attacker could spoof Zabbix, causing data to be written to a malicious target instead of the legitimate data store.
+- **Mitigation**: Implemented a Pre-Shared Key (PSK) mechanism to authenticate and validate the destination, ensuring secure communication and data integrity.
+
+**2.	Data Interception During Transmission:**
+
+![image](https://github.com/user-attachments/assets/fef9fa5d-e515-4f46-b3f0-e28ef7c1bbb9)
+
+- **Threat**: Data transmitted between the IoT devices, Gateway, and Zabbix could be intercepted by attackers, leading to confidentiality breaches.
+- **Mitigation**: All communication channels are secured using HTTPS, providing encryption and protecting data from unauthorized access.
+
+**3.	Unauthorized Access to User Application (Sensify):**
+
+![image](https://github.com/user-attachments/assets/6a141a7e-2ca8-4649-9c67-c348ed5054db)
+
+- **Threat**: Malicious actors might attempt to gain unauthorized access to the mobile application.
+- **Mitigation**: Firebase Authentication is utilized to manage secure and scalable user access, preventing unauthorized access and protecting user data.
 
 #### Detailed Implementation
 **Assembling the IoT Circuit:**
@@ -288,6 +329,63 @@ Firebase Authentication was configured to handle user sign-up and login, ensurin
 **Secure Data Communication:**
 - Data between the backend (Express.js) and the application is transmitted securely using HTTPS to ensure encryption and protection from interception.
 - Firebase Authentication ensures that only authorized users can access the data and alerts.
+
+### Integration of SonarQube for Code Quality and Security
+
+**Objective:**
+Enhance the security and maintainability of the IoT application by integrating SonarQube to perform static code analysis.
+
+**Overview of SonarQube Integration:**
+SonarQube is utilized to scan the source code of the IoT application for potential vulnerabilities, code smells, and bugs, ensuring adherence to coding standards and best practices. This ensures a secure and maintainable application.
+
+**Implementation Steps:**
+**1.	Setup SonarQube:**
+o	Install and configure SonarQube on the development environment.
+
+ ![image](https://github.com/user-attachments/assets/c5dd7536-64df-456b-9258-b412b5c6a1f3)
+
+o	Link the application repository with the SonarQube server.
+
+![image](https://github.com/user-attachments/assets/b64e55fb-f3a6-44fc-8ebf-ffa474e985b9)
+
+**2.	Scanning Process:**
+o	Create a project in SonarQube :
+
+![image](https://github.com/user-attachments/assets/af8a4d5e-64a4-4209-9d4d-1776f19f629a)
+ 
+o	Configure project settings : 
+
+![image](https://github.com/user-attachments/assets/11b7abb7-fce1-407d-8115-320af54d68bf)
+
+o	Run SonarQube scans in the project directory.
+
+![image](https://github.com/user-attachments/assets/833d7d11-c032-4b27-8ba2-d138de0b610c)
+![image](https://github.com/user-attachments/assets/f9f179c1-1687-4c43-acf4-4c0dbf3664ee)
+
+ 
+**3.	Results Analysis:**
+
+![image](https://github.com/user-attachments/assets/3f0099f6-59b8-4816-b6c9-15b5e21ea0ac)
+
+o	Examine the generated reports for identified issues, focusing on vulnerabilities and security hotspots.
+o	Address critical and high-severity issues before deployment.
+
+**Benefits of SonarQube Integration:**
+- Improved Security: Early detection of vulnerabilities helps mitigate risks in the IoT application.
+- Code Quality: Identifies maintainability issues, ensuring the codebase remains clean and scalable.
+- Compliance: Adheres to industry-standard security and coding practices.
+- Automation: Simplifies the process of static code analysis through automation.
+
+**Results from the Latest Analysis:**
+ 
+- Overall Status: Quality gate passed.
+- Key Metrics:
+   - Security: 0 open issues.
+   - Reliability: 2 open issues.
+   - Maintainability: 7 open issues.
+   - Security Hotspots: 1 identified.
+Based on the SonarQube analysis, the code is generally good. There are no security issues or code duplications, which are critical indicators of quality. However, there are 2 minor reliability issues and 7 maintainability issues, which should be addressed to further improve the code. The fact that the project passes the Quality Gate confirms it meets the required quality standards.
+
 
 ## Test Phase
 
