@@ -483,4 +483,4 @@ The communication layer is secure, with no visible data leakage or vulnerabiliti
 The primary goal of this project is to leverage Zabbix’s monitoring capabilities to track and manage the data from the IoT sensors. By utilizing the ESP32 to capture the data and the Zabbix agent on the gateway to forward it to the server, we’re creating a scalable and secure system for real-time monitoring. Once fully deployed, this setup will provide valuable insights into environmental conditions, helping to automate responses and improve system efficiency.
 
 ## Acknowledgements
-I would like to sincerely thank my colleagues __Eya Berradhia__ and __Mayssa Berradhia__ for their incredible teamwork and dedication throughout this project. Their contributions were invaluable in making this project a success, and I greatly appreciate their hard work and support.
+I would like to sincerely thank my colleagues __Eya Berradhia__ and __Mayssa Berradhia__ for their incredible teamwork and dedication throughout this project. Their contributions were invaluable in making this project a success, and I greatly appreciate their hard work and support . 
